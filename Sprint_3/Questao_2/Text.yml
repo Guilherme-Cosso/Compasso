@@ -1,1 +1,87 @@
-saAaA
+openapi: 3.0.1
+info:
+  title: API de Estados
+  description: API para controlar os estados de uma regiao.
+  version: 0.0.1
+  termsOfService: http://localhost:8080/api/states
+  contact:
+    name: Guilherme Cosso
+    email: guicosso@icloud.com
+    url: https://github.com/Guilherme-Cosso/
+#   license:
+#     name: "Lincença: GPLv3"
+#     url: https://www.gnu.org/licenses/gpl-3.0.html
+# externalDocs:
+#   description: Documentação burocrática
+#   url: https://mockapi.io
+servers:
+- url: http://localhost:8080/api/states
+  description: API
+paths:
+  # # /{id}:
+  #   parameters:
+  #   - name: id
+  #     in: path
+  #     schema:
+  #       type: integer
+  #     required: true
+    get:
+      summary: Recupera uma entidade pelo ID
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  nome:
+                    type: string
+                  area:
+                    type: integer
+                  populacao:
+                    type: integer
+                  capital: 
+                    type: string
+        404:
+          description: Especialidade não encontrada
+          content:
+            application/json:
+              example: "Not Found"
+   
+     post:
+      summary: Cria novo Estado
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                nome:
+                  type: string
+                area:
+                  type: integer
+                populacao:
+                  type: integer
+                capital: 
+                  type: string
+      responses:
+        201:
+          description: "Sucesso"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  descricao:
+                    type: string
+  
+              
+              
+              
